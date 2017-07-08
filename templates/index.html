@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+
+	<title>Automated Stress Test</title>
+	<link href="/static/bootstrap.min.css" rel="stylesheet">
+	<link href="/static/main.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+  <link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.css">
+</head>
+
+<body>
+	<section class="container">
+    <section class="row">
+      <section class="col-md-12" align="center">
+        <h2><span style="vertical-align: middle;">Automated Stress Test</span> <img src="static/digi_logo.png" alt="digi-logo" height="70" width="70"></h2>
+      </section>
+    </section>
+
+    <section class="row">
+      <section class="col-md-1 col-xs-1">
+      </section>
+      <section class="col-md-4 col-xs-4 outline">
+        <div class="form-group">
+          <section class="col-md-12 col-xs-12">
+						<label>Test MSISDN:</label>
+						<input class="form-control" id="msisdn" placeholder="MSISDN" style="width:200px;"></input>
+						<br />
+						<br />
+						<label>Action:</label>
+            <select class="form-control" id="action" placeholder="Action" rows="4" style="width:200px;">
+              <option value=""></option>
+              <option value="Go to">Go to</option>
+              <option value="Watch">Watch</option>
+              <option value="Download">Download</option>
+            </select>
+            <br />
+            <br />
+            <label>Paste Url:</label>
+            <textarea class="form-control" id="web_url" placeholder="Please provide url..." rows="4" style="width:200px;"></textarea>
+						Example: https://www.youtube.com/watch?v=bZazPMzBA0I
+						<br />
+						<!--
+            <label>Filename:</label>
+            <input class="form-control" id="filename" placeholder="Please provide filename..." style="width:200px;">
+						-->
+						<button class="btn btn-default" id="add" style="float:right; margin-right:5px; margin-top:5px;"></span>Add</button>
+            <br />
+            <button class="btn btn-default" id="check_speed" style="width:200px; margin-top:20px;"></span>Check Speed</button>
+            <br />
+            <button class="btn btn-default" id="check_quota" style="width:200px; margin-top:5px;"></span>Check Quota</button>
+            <br />
+            <br />
+          </section>
+  			</div>
+      </section>
+
+      <section class="col-md-5 col-xs-5 outline">
+        <h5>Sequence of Events</h5>
+        <br />
+        <ul id="list_of_actions" style="list-style: none; margin-left: -15px">
+        </ul>
+        <br />
+        <button class="btn btn-default" id="clear" style="float:right;"></span>Clear All</button>
+				<br />
+				<button class="btn btn-default" id="start_test" style="width: 100%; margin-top:10px"></span>Run Test</button>
+      </section>
+    </section>
+
+		<section class="row">
+			<section class="col-md-1 col-xs-1">
+			</section>
+			<section class="col-md-9 col-xs-9 outline">
+				Quota Balance / Speed Check
+				<br />
+				<br />
+				<ul id="balance_quota" style="list-style: none; margin-left: -20px; font-size:12px;">
+				</ul>
+			</section>
+		</section>
+
+		<section class="row">
+			<section class="col-md-1 col-xs-1">
+      </section>
+      <section class="col-md-9 col-xs-9 outline">
+				Logs
+				<br />
+				<br />
+				<ul id="logs" style="list-style: none; margin-left: -20px; font-size:9px;">
+        </ul>
+      </section>
+    </section>
+  </section>
+
+  <script src="/static/libs/jquery.min.js"></script>
+  <script src="/static/script.js"></script>
+</body>
+</html>
