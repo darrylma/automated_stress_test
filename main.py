@@ -13,6 +13,7 @@ from flask import Flask, render_template, redirect, url_for,request
 from flask import make_response
 app = Flask(__name__)
 br = Browser()
+cwd = os.getcwd()
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -35,7 +36,7 @@ def open_MCP(MSISDN):
 
     # Retrieve the Google home page, saving the response
     #br.open( "http://google.com" )
-    driver = webdriver.Chrome("C:/Users/chma/Desktop/chromedriver.exe", chrome_options=chrome_options)
+    driver = webdriver.Chrome("chromedriver.exe", chrome_options=chrome_options)
     driver.get("https://mcp.digi.com.my/DigiPortal/appmanager/MCP/Web")
 
     # Login to MCP
@@ -131,7 +132,7 @@ def watchVideo(url) :
 
     # Retrieve the Google home page, saving the response
     #br.open( "http://google.com" )
-    driver = webdriver.Chrome("C:/Users/chma/Desktop/chromedriver.exe", chrome_options=chrome_options)
+    driver = webdriver.Chrome("chromedriver.exe", chrome_options=chrome_options)
     if url.find("youtube"):
         driver.get(url+"?rel=0&autoplay=1")
     driver.get(url)
@@ -166,7 +167,7 @@ def check_speed():
               url = sys.argv[1]
         else :
               url = "http://digiretail.azurewebsites.net/video/twilight.mp4"
-        directory = "C:\Users\chma\Downloads"
+        directory = cwd + "\Downloads"
         (time_elapsed, filesize) = downloadFile(url, directory)
         result = strftime("%Y-%m-%d %H:%M:%S", time.localtime())
         result = result + "\nDownload Speed " + str(round(float(filesize)/time_elapsed/1024,2)) + " kBps\n\n"
@@ -178,7 +179,7 @@ def check_speed():
 def download():
     if request.method == 'POST':
         url = request.form['param']
-        directory = "C:\Users\chma\Downloads"
+        directory = cwd + "\Downloads"
         (time_elapsed, filesize) = downloadFile(url, directory)
         result = strftime("%Y-%m-%d %H:%M:%S", time.localtime())
         result = result + "\nDownloaded " + str(round(float(filesize)/1024/1024,2)) + " MB file\n\n"
